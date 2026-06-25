@@ -5,94 +5,112 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Studio Beatriz Cavanha — Salão de Beleza em Cotia</title>
-  <meta name="description" content="Studio Beatriz Cavanha em Cotia: unhas, maquiagem, penteados e tintura com atendimento sofisticado na Granja Viana." />
+  <meta name="description" content="Studio Beatriz Cavanha na Granja Viana, em Cotia. Unhas, maquiagem, penteados e tintura com atendimento por agendamento." />
 
   <meta property="og:title" content="Studio Beatriz Cavanha — Salão de Beleza em Cotia" />
-  <meta property="og:description" content="Agende unhas, maquiagem, penteados e tintura no Studio Beatriz Cavanha, na Granja Viana em Cotia." />
+  <meta property="og:description" content="Salão de beleza na Granja Viana para unhas, maquiagem, penteados e tintura." />
   <meta property="og:type" content="website" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     :root {
-      --bg: #fff7fa;
-      --text: #191217;
-      --accent: #d94f8c;
-      --neutral: #f1d9e4;
+      --cream: #fbf3f6;
+      --rose: #c9467e;
+      --black: #111011;
+      --muted: #75666d;
+      --line: #ead6df;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Manrope', sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      background: var(--cream);
+      color: var(--black);
     }
 
-    h1, h2, h3, .brand {
+    h1, h2, .serif {
       font-family: 'Playfair Display', serif;
     }
 
-    .btn-primary {
-      background: var(--accent);
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .btn-main {
+      background: var(--black);
       color: white;
-      border-radius: 0.75rem;
-      padding: 0.9rem 1.25rem;
+      padding: 15px 26px;
+      border-radius: 999px;
       font-weight: 700;
-      transition: all .2s ease;
-    }
-
-    .btn-primary:hover {
-      transform: scale(1.03);
-      box-shadow: 0 14px 28px rgba(217, 79, 140, .22);
-    }
-
-    .card {
-      border: 1px solid var(--neutral);
-      border-radius: 1rem;
-      background: rgba(255,255,255,.72);
-      padding: 1.75rem;
-      transition: all .2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 38px rgba(25,18,23,.08);
-    }
-
-    .placeholder {
-      border: 1px dashed rgba(25,18,23,.25);
-      background: rgba(255,255,255,.58);
-      color: rgba(25,18,23,.65);
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 2rem;
-      border-radius: 1.25rem;
-      min-height: 320px;
+      transition: .25s ease;
     }
 
-    .fade-in {
+    .btn-main:hover {
+      transform: translateY(-2px);
+      background: var(--rose);
+    }
+
+    .btn-soft {
+      color: var(--black);
+      border-bottom: 1px solid var(--black);
+      padding-bottom: 4px;
+      font-weight: 700;
+    }
+
+    .fade {
       opacity: 0;
       transform: translateY(18px);
-      transition: opacity .6s ease, transform .6s ease;
+      transition: opacity .7s ease, transform .7s ease;
     }
 
-    .fade-in.visible {
+    .fade.show {
       opacity: 1;
       transform: translateY(0);
     }
 
-    :focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 4px;
+    .photo {
+      border-radius: 28px;
+      overflow: hidden;
+      background: #ddd;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .service-row {
+      border-top: 1px solid var(--line);
+      padding: 28px 0;
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .service-row:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    @media (max-width: 768px) {
+      .service-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
     }
   </style>
 
@@ -110,8 +128,10 @@
       "addressCountry": "BR"
     },
     "telephone": "+55 11 94463-2133",
+    "sameAs": "https://www.instagram.com/studiobeatrizcavanha/",
     "openingHours": [
-      "Tu-We 09:00-19:00",
+      "Tu 09:00-19:00",
+      "We 09:00-19:00",
       "Th 09:00-19:00",
       "Fr 08:00-19:00",
       "Sa 09:00-19:00"
@@ -121,331 +141,337 @@
 </head>
 
 <body>
-  <header class="fixed top-0 left-0 right-0 z-50 bg-[var(--bg)]/90 backdrop-blur border-b border-[var(--neutral)]">
-    <div class="max-w-6xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
-      <a href="#">
-    <img
-        src="logo-beatriz-cavanha.png"
-        alt="Studio Beatriz Cavanha"
-        class="h-14 w-auto"
-    >
-</a>
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[var(--cream)]/90 backdrop-blur border-b border-[var(--line)]">
+    <div class="wrap h-20 flex items-center justify-between">
+      <a href="#" aria-label="Studio Beatriz Cavanha">
+        <img src="logo-beatriz-cavanha.png" alt="Logo Studio Beatriz Cavanha" class="h-12 w-auto">
+      </a>
 
-      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold">
-        <a href="#servicos" class="hover:text-[var(--accent)]">Serviços</a>
-        <a href="#sobre" class="hover:text-[var(--accent)]">Sobre</a>
-        <a href="#faq" class="hover:text-[var(--accent)]">FAQ</a>
-        <a href="#contato" class="hover:text-[var(--accent)]">Contato</a>
+      <nav class="hidden md:flex gap-8 text-sm font-semibold">
+        <a href="#servicos">Serviços</a>
+        <a href="#studio">O studio</a>
+        <a href="#duvidas">Dúvidas</a>
+        <a href="#contato">Contato</a>
       </nav>
 
-      <a class="hidden md:inline-flex btn-primary"
+      <a class="hidden md:inline-flex btn-main"
          href="https://wa.me/5511944632133?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio."
          target="_blank" rel="noopener">
-        Falar no WhatsApp
+        Agendar horário
       </a>
 
       <button id="menuBtn" class="md:hidden text-3xl" aria-label="Abrir menu">☰</button>
     </div>
 
-    <div id="mobileMenu" class="hidden md:hidden px-6 pb-6">
+    <div id="mobileMenu" class="hidden md:hidden wrap pb-6">
       <div class="flex flex-col gap-4 font-semibold">
         <a href="#servicos">Serviços</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#faq">FAQ</a>
+        <a href="#studio">O studio</a>
+        <a href="#duvidas">Dúvidas</a>
         <a href="#contato">Contato</a>
-        <a class="btn-primary text-center"
-           href="https://wa.me/5511944632133?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio."
-           target="_blank" rel="noopener">
-          Agendar horário
-        </a>
+        <a class="btn-main" href="https://wa.me/5511944632133?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" rel="noopener">Agendar horário</a>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="pt-32 pb-20 lg:pt-40 lg:pb-28">
-      <div class="max-w-6xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-12 items-center">
-        <div class="fade-in">
-          <p class="uppercase tracking-[.25em] text-sm font-bold text-[var(--accent)] mb-4">
-            Salão de beleza em Cotia
-          </p>
-          <h1 class="text-5xl lg:text-7xl font-bold leading-tight">
-            Beleza com presença
-          </h1>
-          <p class="mt-6 text-lg lg:text-xl text-black/70 max-w-xl">
-            Unhas, maquiagem, penteados e tintura para você se sentir pronta com mais confiança.
+    <section class="pt-32 lg:pt-40 pb-20 lg:pb-28">
+      <div class="wrap grid lg:grid-cols-12 gap-10 items-end">
+        <div class="lg:col-span-7 fade">
+          <p class="text-xs uppercase tracking-[0.32em] font-bold text-[var(--rose)] mb-6">
+            Salão de beleza · Granja Viana
           </p>
 
-          <div class="mt-9 flex flex-col sm:flex-row gap-4">
-            <a class="btn-primary text-center"
+          <h1 class="text-6xl sm:text-7xl lg:text-8xl leading-[0.92] font-semibold tracking-tight">
+            Beleza sem pressa.
+          </h1>
+
+          <p class="mt-7 max-w-xl text-lg text-[var(--muted)] leading-relaxed">
+            Um studio em Cotia para unhas, maquiagem, penteados e tintura — com atendimento por agendamento.
+          </p>
+
+          <div class="mt-9 flex flex-col sm:flex-row gap-5 items-start sm:items-center">
+            <a class="btn-main"
                href="https://wa.me/5511944632133?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio%20no%20Studio%20Beatriz%20Cavanha."
                target="_blank" rel="noopener">
-              Agendar horário
+              Agendar pelo WhatsApp
             </a>
-            <a href="#servicos" class="inline-flex items-center justify-center font-bold text-[var(--text)]">
-              Ver serviços →
-            </a>
+            <a href="#servicos" class="btn-soft">Ver serviços</a>
           </div>
         </div>
 
-        <div class="placeholder fade-in" role="img" aria-label="Placeholder de imagem principal do salão">
-          <img
-    src="fachada.jpg"
-    alt="Studio Beatriz Cavanha"
-    class="rounded-3xl shadow-xl w-full h-full object-cover">
+        <div class="lg:col-span-5 fade">
+          <div class="photo h-[520px]">
+            <img src="fachada.jpg" alt="Fachada ou ambiente do Studio Beatriz Cavanha" loading="eager">
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="servicos" class="py-16 lg:py-24">
-      <div class="max-w-6xl mx-auto px-6 lg:px-12">
-        <div class="max-w-2xl fade-in">
-          <p class="uppercase tracking-[.25em] text-sm font-bold text-[var(--accent)] mb-3">
-            Serviços
-          </p>
-          <h2 class="text-4xl lg:text-5xl font-bold">
-            Cuidados para cada momento
-          </h2>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-          <article class="card fade-in">
-            <div class="text-3xl mb-5" aria-hidden="true">💅</div>
-            <h3 class="text-2xl font-bold mb-3">Unhas</h3>
-            <p class="text-black/70 mb-5">
-              Acabamento bonito, cuidado nos detalhes e atendimento pensado para valorizar suas mãos.
-            </p>
-            <a class="font-bold text-[var(--accent)]"
-               href="https://wa.me/5511944632133?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20agendar%20um%20hor%C3%A1rio%20para%20unhas."
-               target="_blank" rel="noopener">
-              Agendar unhas →
-            </a>
-          </article>
-
-          <article class="card fade-in">
-            <div class="text-3xl mb-5" aria-hidden="true">✨</div>
-            <h3 class="text-2xl font-bold mb-3">Maquiagem</h3>
-            <p class="text-black/70 mb-5">
-              Produção para eventos, fotos e ocasiões especiais, com visual alinhado ao seu estilo.
-            </p>
-            <a class="font-bold text-[var(--accent)]"
-               href="https://wa.me/5511944632133?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20maquiagem%20no%20Studio%20Beatriz%20Cavanha."
-               target="_blank" rel="noopener">
-              Agendar maquiagem →
-            </a>
-          </article>
-
-          <article class="card fade-in">
-            <div class="text-3xl mb-5" aria-hidden="true">👗</div>
-            <h3 class="text-2xl font-bold mb-3">Penteados</h3>
-            <p class="text-black/70 mb-5">
-              Penteados para festas, casamentos, formaturas e compromissos onde o visual importa.
-            </p>
-            <a class="font-bold text-[var(--accent)]"
-               href="https://wa.me/5511944632133?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20agendar%20um%20penteado."
-               target="_blank" rel="noopener">
-              Agendar penteado →
-            </a>
-          </article>
-
-          <article class="card fade-in">
-            <div class="text-3xl mb-5" aria-hidden="true">🎨</div>
-            <h3 class="text-2xl font-bold mb-3">Tintura</h3>
-            <p class="text-black/70 mb-5">
-              Cor com orientação, cuidado no processo e atenção ao resultado que combina com você.
-            </p>
-            <a class="font-bold text-[var(--accent)]"
-               href="https://wa.me/5511944632133?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20tintura%20e%20gostaria%20de%20saber%20mais."
-               target="_blank" rel="noopener">
-              Falar sobre tintura →
-            </a>
-          </article>
-        </div>
+    <section class="py-14 bg-[var(--black)] text-white overflow-hidden">
+      <div class="wrap">
+        <p class="serif text-3xl md:text-5xl leading-tight max-w-5xl">
+          Um atendimento pensado para o seu momento: do detalhe das unhas à produção para um dia especial.
+        </p>
       </div>
     </section>
 
-    <section id="sobre" class="py-16 lg:py-24 bg-white/60">
-      <div class="max-w-6xl mx-auto px-6 lg:px-12">
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <div class="fade-in">
-            <p class="uppercase tracking-[.25em] text-sm font-bold text-[var(--accent)] mb-3">
-              Quem somos
+    <section id="servicos" class="py-20 lg:py-28">
+      <div class="wrap">
+        <div class="grid lg:grid-cols-12 gap-10 mb-12">
+          <div class="lg:col-span-5 fade">
+            <p class="text-xs uppercase tracking-[0.32em] font-bold text-[var(--rose)] mb-5">
+              Serviços
             </p>
-            <h2 class="text-4xl lg:text-5xl font-bold mb-6">
-              Por que clientes confiam no Studio Beatriz Cavanha
+            <h2 class="serif text-5xl lg:text-6xl leading-tight">
+              O essencial, bem feito.
             </h2>
-            <p class="text-black/70 mb-4">
-              O Studio Beatriz Cavanha é um salão pensado para quem quer se cuidar com calma, bom gosto e atenção aos detalhes.
-            </p>
-            <p class="text-black/70 mb-4">
-              Cada atendimento busca entender o que você deseja antes de começar, para entregar um resultado bonito e adequado ao seu momento.
-            </p>
-            <p class="text-black/70">
-              Localizado na Granja Viana, em Cotia, o studio reúne serviços de beleza para facilitar sua rotina.
-            </p>
           </div>
 
-          <img
-    src="equipe.jpg"
-    alt="Equipe Studio Beatriz Cavanha"
-    class="rounded-3xl shadow-lg w-full object-cover">
-            <span>[IMAGEM: foto da Beatriz ou da equipe atendendo cliente no salão, com ambiente elegante em rosa e preto]</span>
-          </div>
+          <p class="lg:col-span-5 lg:col-start-8 fade text-lg text-[var(--muted)] leading-relaxed">
+            Sem tabela exposta no site. Para valores, disponibilidade e orientação, o contato é direto pelo WhatsApp.
+          </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-5 mt-12">
-          <div class="card fade-in">
-            <strong>Atendimento cuidadoso</strong>
-            <p class="text-black/65 mt-2">Escuta e orientação antes do serviço.</p>
+        <div class="fade">
+          <div class="service-row">
+            <span class="text-[var(--rose)] font-bold">01</span>
+            <div>
+              <h3 class="text-2xl font-semibold">Unhas</h3>
+              <p class="text-[var(--muted)] mt-1">Acabamento delicado e cuidado nos detalhes.</p>
+            </div>
+            <a class="btn-soft" href="https://wa.me/5511944632133?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20agendar%20um%20hor%C3%A1rio%20para%20unhas." target="_blank" rel="noopener">Agendar</a>
           </div>
-          <div class="card fade-in">
-            <strong>Ambiente sofisticado</strong>
-            <p class="text-black/65 mt-2">Espaço pensado para você se sentir bem.</p>
+
+          <div class="service-row">
+            <span class="text-[var(--rose)] font-bold">02</span>
+            <div>
+              <h3 class="text-2xl font-semibold">Maquiagem</h3>
+              <p class="text-[var(--muted)] mt-1">Produção para eventos, fotos e ocasiões especiais.</p>
+            </div>
+            <a class="btn-soft" href="https://wa.me/5511944632133?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20maquiagem%20no%20Studio%20Beatriz%20Cavanha." target="_blank" rel="noopener">Agendar</a>
           </div>
-          <div class="card fade-in">
-            <strong>Agendamento pelo WhatsApp</strong>
-            <p class="text-black/65 mt-2">Converse direto para escolher o melhor horário.</p>
+
+          <div class="service-row">
+            <span class="text-[var(--rose)] font-bold">03</span>
+            <div>
+              <h3 class="text-2xl font-semibold">Penteados</h3>
+              <p class="text-[var(--muted)] mt-1">Para festas, casamentos, formaturas e compromissos especiais.</p>
+            </div>
+            <a class="btn-soft" href="https://wa.me/5511944632133?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20agendar%20um%20penteado." target="_blank" rel="noopener">Agendar</a>
+          </div>
+
+          <div class="service-row">
+            <span class="text-[var(--rose)] font-bold">04</span>
+            <div>
+              <h3 class="text-2xl font-semibold">Tintura</h3>
+              <p class="text-[var(--muted)] mt-1">Cor com orientação, processo cuidadoso e bom acabamento.</p>
+            </div>
+            <a class="btn-soft" href="https://wa.me/5511944632133?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20tintura%20e%20gostaria%20de%20saber%20mais." target="_blank" rel="noopener">Consultar</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="faq" class="py-16 lg:py-24">
-      <div class="max-w-4xl mx-auto px-6 lg:px-12">
-        <div class="text-center fade-in">
-          <p class="uppercase tracking-[.25em] text-sm font-bold text-[var(--accent)] mb-3">
-            Dúvidas frequentes
-          </p>
-          <h2 class="text-4xl lg:text-5xl font-bold">
-            Antes de agendar
-          </h2>
+    <section id="studio" class="py-20 lg:py-28 bg-white">
+      <div class="wrap grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-6 fade">
+          <div class="photo h-[620px]">
+            <img src="interior.jpg" alt="Interior do Studio Beatriz Cavanha" loading="lazy">
+          </div>
         </div>
 
-        <div class="mt-12 space-y-4">
-          <details class="card fade-in">
-            <summary class="font-bold cursor-pointer">Preciso agendar antes?</summary>
-            <p class="text-black/70 mt-4">O ideal é chamar no WhatsApp para verificar disponibilidade e reservar o melhor horário.</p>
-          </details>
-
-          <details class="card fade-in">
-            <summary class="font-bold cursor-pointer">Vocês passam valores pelo WhatsApp?</summary>
-            <p class="text-black/70 mt-4">Os valores são informados diretamente pelo WhatsApp, conforme o serviço desejado. Assim conseguimos orientar você da melhor forma antes do agendamento.</p>
-          </details>
-
-          <details class="card fade-in">
-            <summary class="font-bold cursor-pointer">Faz maquiagem e penteado para eventos?</summary>
-            <p class="text-black/70 mt-4">Sim. Você pode informar a data, horário do evento e referência do visual desejado.</p>
-          </details>
-
-          <details class="card fade-in">
-            <summary class="font-bold cursor-pointer">A tintura precisa de avaliação antes?</summary>
-            <p class="text-black/70 mt-4">Para um resultado mais seguro, é recomendado conversar antes e explicar o estado atual do cabelo.</p>
-          </details>
-
-          <details class="card fade-in">
-            <summary class="font-bold cursor-pointer">Quais formas de pagamento aceitam?</summary>
-            <p class="text-black/70 mt-4">Confirme diretamente pelo WhatsApp antes do atendimento para receber as opções atualizadas.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section id="contato" class="py-16 lg:py-24">
-      <div class="max-w-6xl mx-auto px-6 lg:px-12">
-        <div class="bg-[var(--accent)] text-white rounded-3xl p-8 lg:p-14 text-center fade-in">
-          <h2 class="text-4xl lg:text-5xl font-bold mb-5">
-            Vamos cuidar do seu visual?
-          </h2>
-          <p class="text-white/90 text-lg mb-8">
-            Chame no WhatsApp e veja o melhor horário para o seu atendimento.
+        <div class="lg:col-span-5 lg:col-start-8 fade">
+          <p class="text-xs uppercase tracking-[0.32em] font-bold text-[var(--rose)] mb-5">
+            O studio
           </p>
-          <a class="inline-flex bg-white text-[var(--text)] rounded-xl px-7 py-4 font-bold hover:scale-105 transition"
-             href="https://wa.me/5511944632133?text=Ol%C3%A1%2C%20vamos%20conversar%3F%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20no%20Studio%20Beatriz%20Cavanha."
+
+          <h2 class="serif text-5xl lg:text-6xl leading-tight mb-7">
+            Um espaço para se cuidar com calma.
+          </h2>
+
+          <div class="space-y-5 text-[var(--muted)] text-lg leading-relaxed">
+            <p>
+              O Studio Beatriz Cavanha fica na Granja Viana, em Cotia, e atende por horário marcado.
+            </p>
+            <p>
+              A ideia é simples: entender o que você quer, orientar o melhor caminho e cuidar do resultado com atenção.
+            </p>
+            <p>
+              Para quem busca praticidade, beleza e um atendimento mais próximo.
+            </p>
+          </div>
+
+          <a class="btn-main mt-9"
+             href="https://wa.me/5511944632133?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20os%20hor%C3%A1rios%20dispon%C3%ADveis%20do%20Studio%20Beatriz%20Cavanha."
              target="_blank" rel="noopener">
-            WhatsApp: (11) 94463-2133
+            Ver horários
           </a>
         </div>
+      </div>
+    </section>
 
-        <div class="grid md:grid-cols-3 gap-6 mt-10">
-          <div class="card fade-in">
-            <strong>Endereço</strong>
-            <p class="text-black/70 mt-2">Av. José Giorgi, 1328 - Granja Viana, Cotia - SP, 06707-100</p>
+    <section class="py-20 lg:py-28">
+      <div class="wrap">
+        <div class="grid lg:grid-cols-12 gap-10 items-end mb-10">
+          <div class="lg:col-span-6 fade">
+            <p class="text-xs uppercase tracking-[0.32em] font-bold text-[var(--rose)] mb-5">
+              Referências
+            </p>
+            <h2 class="serif text-5xl lg:text-6xl leading-tight">
+              Traga sua ideia. A gente conversa.
+            </h2>
           </div>
 
-          <div class="card fade-in">
+          <p class="lg:col-span-5 lg:col-start-8 fade text-lg text-[var(--muted)] leading-relaxed">
+            Pode enviar uma referência de maquiagem, penteado, cor ou unha antes de agendar.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 fade">
+          <div class="photo h-[420px] md:translate-y-10">
+            <img src="equipe.jpg" alt="Atendimento no Studio Beatriz Cavanha" loading="lazy">
+          </div>
+
+          <div class="photo h-[420px]">
+            <img src="interior.jpg" alt="Ambiente do salão Studio Beatriz Cavanha" loading="lazy">
+          </div>
+
+          <div class="photo h-[420px] md:-translate-y-10">
+            <img src="fachada.jpg" alt="Studio Beatriz Cavanha em Cotia" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="duvidas" class="py-20 lg:py-28 bg-[var(--black)] text-white">
+      <div class="wrap max-w-4xl">
+        <div class="fade text-center mb-12">
+          <p class="text-xs uppercase tracking-[0.32em] font-bold text-[var(--rose)] mb-5">
+            Antes de agendar
+          </p>
+          <h2 class="serif text-5xl lg:text-6xl leading-tight">
+            Perguntas rápidas
+          </h2>
+        </div>
+
+        <div class="space-y-3 fade">
+          <details class="border border-white/10 rounded-2xl p-6">
+            <summary class="cursor-pointer font-semibold">Preciso marcar horário?</summary>
+            <p class="text-white/65 mt-4">Sim. O atendimento funciona por agendamento pelo WhatsApp.</p>
+          </details>
+
+          <details class="border border-white/10 rounded-2xl p-6">
+            <summary class="cursor-pointer font-semibold">Vocês passam valores pelo site?</summary>
+            <p class="text-white/65 mt-4">Não. Os valores são informados pelo WhatsApp, conforme o serviço desejado.</p>
+          </details>
+
+          <details class="border border-white/10 rounded-2xl p-6">
+            <summary class="cursor-pointer font-semibold">Posso mandar referência antes?</summary>
+            <p class="text-white/65 mt-4">Pode. Isso ajuda a entender melhor o estilo, o prazo e o tipo de atendimento.</p>
+          </details>
+
+          <details class="border border-white/10 rounded-2xl p-6">
+            <summary class="cursor-pointer font-semibold">Faz maquiagem e penteado para evento?</summary>
+            <p class="text-white/65 mt-4">Sim. Informe a data, horário do evento e o tipo de produção desejada.</p>
+          </details>
+
+          <details class="border border-white/10 rounded-2xl p-6">
+            <summary class="cursor-pointer font-semibold">Onde fica o studio?</summary>
+            <p class="text-white/65 mt-4">Av. José Giorgi, 1328 - Granja Viana, Cotia - SP.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="py-20 lg:py-28">
+      <div class="wrap">
+        <div class="grid lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-6 fade">
+            <p class="text-xs uppercase tracking-[0.32em] font-bold text-[var(--rose)] mb-5">
+              Agendamento
+            </p>
+            <h2 class="serif text-5xl lg:text-7xl leading-tight">
+              Quer marcar seu horário?
+            </h2>
+          </div>
+
+          <div class="lg:col-span-5 lg:col-start-8 fade">
+            <p class="text-lg text-[var(--muted)] leading-relaxed mb-8">
+              Chame no WhatsApp para confirmar disponibilidade, valores e o melhor horário para você.
+            </p>
+
+            <a class="btn-main"
+               href="https://wa.me/5511944632133?text=Ol%C3%A1%2C%20vamos%20conversar%3F%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio%20no%20Studio%20Beatriz%20Cavanha."
+               target="_blank" rel="noopener">
+              WhatsApp: (11) 94463-2133
+            </a>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mt-14 fade">
+          <div class="border-t border-[var(--line)] pt-6">
+            <strong>Endereço</strong>
+            <p class="text-[var(--muted)] mt-3">
+              Av. José Giorgi, 1328<br>
+              Granja Viana, Cotia - SP
+            </p>
+          </div>
+
+          <div class="border-t border-[var(--line)] pt-6">
             <strong>Horário</strong>
-            <p class="text-black/70 mt-2">
+            <p class="text-[var(--muted)] mt-3">
               Ter–Qui 09h–19h<br>
               Sex 08h–19h<br>
               Sáb 09h–19h
             </p>
           </div>
 
-          <div class="card fade-in">
+          <div class="border-t border-[var(--line)] pt-6">
             <strong>Instagram</strong>
-
-<p class="mt-2">
-    <a
-        href="https://www.instagram.com/studiobeatrizcavanha/"
-        target="_blank"
-        class="text-pink-600 font-semibold hover:underline">
-
-        @studiobeatrizcavanha
-
-    </a>
-</p>
+            <p class="mt-3">
+              <a href="https://www.instagram.com/studiobeatrizcavanha/" target="_blank" rel="noopener" class="text-[var(--rose)] font-bold hover:underline">
+                @studiobeatrizcavanha
+              </a>
+            </p>
           </div>
         </div>
 
-        <div class="mt-8 fade-in rounded-3xl overflow-hidden shadow-lg">
-
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.495371122906!2d-46.871723123953196!3d-23.586560778782573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf0083fb84ac2b%3A0xd23f71fde4b42249!2sAv.%20Jos%C3%A9%20Giorgi%2C%201328%20-%20S%C3%A3o%20Paulo%20II%2C%20Cotia%20-%20SP%2C%2006707-100!5e0!3m2!1spt-BR!2sbr!4v1782405358181!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
-        width="100%"
-        height="420"
-        style="border:0;"
-        loading="lazy"
-        allowfullscreen=""
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-
-</div>
+        <div class="mt-10 rounded-[28px] overflow-hidden border border-[var(--line)] bg-white p-6 text-center text-[var(--muted)] fade">
+          [MAPA: incorporar Google Maps via iframe do Studio Beatriz Cavanha]
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="bg-[var(--text)] text-white py-12">
-    <div class="max-w-6xl mx-auto px-6 lg:px-12 grid md:grid-cols-3 gap-10">
+  <footer class="bg-[var(--black)] text-white py-12">
+    <div class="wrap grid md:grid-cols-3 gap-10">
       <div>
-        <img
-    src="logo-beatriz-cavanha.png"
-    alt="Studio Beatriz Cavanha"
-    class="h-16">
-        <p class="text-white/70 mt-3">
-          Beleza, cuidado e atendimento sofisticado na Granja Viana.
-        </p>
+        <img src="logo-beatriz-cavanha.png" alt="Logo Studio Beatriz Cavanha" class="h-14 w-auto mb-5">
+        <p class="text-white/55">Salão de beleza na Granja Viana, em Cotia.</p>
       </div>
 
       <div>
-        <strong>Links rápidos</strong>
-        <div class="flex flex-col gap-2 mt-4 text-white/70">
+        <strong>Menu</strong>
+        <div class="flex flex-col gap-3 mt-4 text-white/55">
           <a href="#servicos">Serviços</a>
-          <a href="#sobre">Sobre</a>
-          <a href="#faq">FAQ</a>
+          <a href="#studio">O studio</a>
+          <a href="#duvidas">Dúvidas</a>
           <a href="#contato">Contato</a>
         </div>
       </div>
 
       <div>
         <strong>Contato</strong>
-        <p class="text-white/70 mt-4">
+        <p class="text-white/55 mt-4">
           WhatsApp: (11) 94463-2133<br>
+          Av. José Giorgi, 1328<br>
           Granja Viana, Cotia - SP
         </p>
       </div>
     </div>
 
-    <div class="max-w-6xl mx-auto px-6 lg:px-12 mt-10 pt-6 border-t border-white/10 text-white/55 text-sm flex flex-col md:flex-row gap-2 justify-between">
+    <div class="wrap mt-10 pt-6 border-t border-white/10 text-white/40 text-sm flex flex-col md:flex-row justify-between gap-3">
       <p>© <span id="year"></span> Studio Beatriz Cavanha. Todos os direitos reservados.</p>
       <p>Site desenvolvido com cuidado.</p>
     </div>
@@ -454,14 +480,19 @@
   <script>
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-    const items = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver(entries => {
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    const items = document.querySelectorAll('.fade');
+
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+        if (entry.isIntersecting) entry.target.classList.add('show');
       });
     }, { threshold: 0.12 });
+
     items.forEach(item => observer.observe(item));
 
     document.getElementById('year').textContent = new Date().getFullYear();
